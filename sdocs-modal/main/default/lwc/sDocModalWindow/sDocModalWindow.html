@@ -1,0 +1,31 @@
+<template>
+  <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class={modalStyleCss}>
+    <div class="slds-modal__container">
+      <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+        <lightning-button-icon variant="border-inverse" icon-name="utility:close" title="Cancel and close" onclick={closeOrCancelModal}></lightning-button-icon>
+      </button>
+      <div class="slds-modal__content slds-var-p-around_medium custom_modal_dimensions" id="modal-content-id-1">
+          <template if:true={isVersionMode}>
+            <div class="slds-grid slds-gutters">
+              <div class="slds-col" style="width:10%;">
+                <nav class="slds-nav-vertical slds-nav-vertical_compact" aria-label="Sub page">
+                  <div class="slds-nav-vertical__section">
+                    <ul aria-describedby="entity-header">
+                      <template for:each={documentVersions} for:item="docVersion">
+                        <c-document-version-item key={docVersion.contentVersionId} version={docVersion.version} content-version-id={docVersion.contentVersionId} onselect={loadVersionInPdfViewer}></c-document-version-item>
+
+                      </template>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+              <div class="slds-col" style="width:90%;">
+                  <c-pdf-viewer content-version-id={currentSelectedVersion} viewer-height="800"></c-pdf-viewer>
+              </div>
+            </div>
+        </template>
+      </div>
+    </div>
+  </section>
+<div class={backdropCss} role="presentation"></div>
+</template>

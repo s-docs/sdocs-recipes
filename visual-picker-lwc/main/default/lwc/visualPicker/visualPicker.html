@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Available Templates" icon-name="custom:custom27">
+        <lightning-button slot="actions" label="Generate" variant="brand"></lightning-button>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control slds-var-p-around_small">
+                <lightning-progress-bar value="10" size="large" class="slds-var-p-around_small"></lightning-progress-bar>
+                <template for:each={templateList} for:item="theTemplate">
+                    <div class="slds-visual-picker slds-visual-picker_vertical" style="width:100%;" key={theTemplate.Id}>
+                        <template if:true={theTemplate.enabled}>
+                            <input type="checkbox" id={theTemplate.Id} value={theTemplate.Id}  name={theTemplate.Id} />
+                        </template>
+                        <template if:false={theTemplate.enabled}>
+                            <input type="checkbox" id={theTemplate.Id} value={theTemplate.Id}  name={theTemplate.Id} disabled=""/>
+                        </template>
+                        <label for={theTemplate.Id}>
+                            <span class="slds-visual-picker__figure slds-visual-picker__text"  style="width:100%;" >
+                                <lightning-tile label={theTemplate.name} type="media">
+                                    <lightning-icon slot="media" icon-name="doctype:pdf"></lightning-icon>
+                                    <p class="slds-truncate">
+                                        Created Date: <lightning-formatted-date-time value={theTemplate.createdAt}
+                                                                year="numeric"
+                                                                day="2-digit"
+                                                                month="long">
+                                                        </lightning-formatted-date-time><br/>
+                                        Details: {theTemplate.description}
+                                    </p>
+                                </lightning-tile>
+                            </span>
+                            <span class="slds-icon_container slds-visual-picker__text-check">
+                                <lightning-icon icon-name="utility:check" variant="inverse" size="x-small"></lightning-icon>
+                            </span>
+                        </label>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div slot="footer">
+            <a class="slds-card__footer-action" href="#">View All</a>
+        </div>
+    </lightning-card>
+</template>
