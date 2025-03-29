@@ -1,0 +1,43 @@
+<!-- barcodeGenerator.html -->
+<template>
+    <lightning-card title={title} icon-name="standard:scan_card">
+        <div class="slds-p-around_medium">
+            <lightning-input 
+                label="Barcode Value" 
+                value={barcodeValue} 
+                onchange={handleValueChange}
+                required>
+            </lightning-input>
+            
+            <lightning-combobox
+                label="Barcode Format"
+                value={barcodeFormat}
+                options={formats}
+                onchange={handleFormatChange}
+                class="slds-m-top_small">
+            </lightning-combobox>
+            
+            <div class="slds-grid slds-grid_align-center slds-m-top_medium">
+                <lightning-button 
+                    label="Generate Document"
+                    variant="brand"
+                    onclick={generateBarcode}
+                    disabled={isLoading}>
+                </lightning-button>
+                
+            </div>
+            
+            <div if:true={errorMessage} class="slds-m-top_small slds-text-color_error">
+                {errorMessage}
+            </div>
+            
+            <div if:true={isLoading} class="slds-m-top_medium slds-align_absolute-center">
+                <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+            
+            <div class="slds-m-top_medium slds-align_absolute-center barcode-container">
+                <!-- Barcode will be inserted here -->
+            </div>
+        </div>
+    </lightning-card>
+</template>
