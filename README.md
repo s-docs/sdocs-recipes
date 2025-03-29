@@ -1,11 +1,10 @@
-# UI component protottypes that can be leveraged in S-docs LWCs
+# S-Docs recipes
 
 
-## Visual picker
+## `barcode`
 
-Allowing a consistent way for selecting templates or documents. 
+Showcases generating a barcode using `JSBarcode` and then include that in a SDocs document.
 
-## S-Docs modal
+## image-rotation
 
-Replaces the standard LWC modal with a custom modal from www.lightningdesignsystem.com that has better control of the height and width.
-
+To auto rotate images as The salesforce PDF engine does not respect the orientation when rendering the images on the PDF.

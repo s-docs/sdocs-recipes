@@ -2,7 +2,7 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true
+      "default": false
     },
     {
       "path": "visual-picker",
@@ -11,10 +11,42 @@
     {
       "path": "sdocs-modal",
       "default": false
+    },
+    {
+      "path": "sdocs-invocable",
+      "default": false
+    },
+    {
+      "path":"document-actions",
+      "default":false
+    },
+    {
+      "path":"fidelity-tableau",
+      "default":false
+    },
+    {
+      "path":"vf-lwc-iframe",
+      "default":false
+    },
+    {
+      "path":"custom-jwt",
+      "default":false
+    },
+    {
+      "path":"omya",
+      "default":false
+    },
+    {
+      "path":"image-rotation",
+      "default":false
+    },
+    {
+      "path":"barcode",
+      "default": true
     }
   ],
   "name": "sdocsdemo",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "56.0"
+  "sourceApiVersion": "60.0"
 }
